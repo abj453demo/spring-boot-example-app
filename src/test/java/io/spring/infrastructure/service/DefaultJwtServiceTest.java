@@ -16,9 +16,11 @@ public class DefaultJwtServiceTest {
 
     private JwtService jwtService;
 
+    private static final String TEST_SECRET = "test-secret-key-that-is-at-least-64-bytes-long-for-hs512-algorithm-requirement";
+
     @Before
     public void setUp() {
-        jwtService = new DefaultJwtService("123123", 3600);
+        jwtService = new DefaultJwtService(TEST_SECRET, 3600);
     }
 
     @Test
