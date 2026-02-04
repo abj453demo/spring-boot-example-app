@@ -16,9 +16,12 @@ public class DefaultJwtServiceTest {
 
     private JwtService jwtService;
 
+    // Test-only secret key - must be at least 256 bits (32 bytes) for HMAC-SHA algorithms in JJWT 0.12.x
+    private static final String TEST_SECRET = "this-is-a-test-only-secret-key-for-unit-tests-minimum-256-bits";
+
     @Before
     public void setUp() {
-        jwtService = new DefaultJwtService("123123", 3600);
+        jwtService = new DefaultJwtService(TEST_SECRET, 3600);
     }
 
     @Test
